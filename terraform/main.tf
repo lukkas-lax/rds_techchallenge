@@ -21,7 +21,7 @@ resource "aws_security_group" "rds_sg" {
   }
 }
 
-#create a RDS Database Instance
+#create a RDS Database Instances
 resource "aws_db_instance" "mysqltechchallenge" {
   engine               = "mysql"
   identifier           = "rdstechchallenge"
