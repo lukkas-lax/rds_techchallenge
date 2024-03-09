@@ -21,6 +21,12 @@ resource "aws_security_group" "rds_sg" {
   }
 }
 
+resource "random_password" "password" {
+  length           = 16
+  special          = true
+  override_special = "_%@"
+}
+
 #create a RDS Database Instance
 resource "aws_db_instance" "mysqltechchallenge" {
   engine               = "mysql"
@@ -31,6 +37,7 @@ resource "aws_db_instance" "mysqltechchallenge" {
   username             = "root"
   password             = "170593"
   parameter_group_name = "default.mysql5.7"
+  manage_master_user_password = true
   vpc_security_group_ids = ["${aws_security_group.rds_sg.id}"]
   skip_final_snapshot  = true
   publicly_accessible =  true
