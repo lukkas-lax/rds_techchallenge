@@ -1,7 +1,7 @@
 #main.tf
 #defining the provider as aws
 provider "aws" {
-    region     = "sa-east-1"
+    region     = "us-east-2"
 }
 
 #create a security group for RDS Database Instance
